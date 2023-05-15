@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
-
+from .forms import pieza
 
 
 def login(request):
@@ -14,10 +14,12 @@ def home(request):
     return render( request, 'pages/home.html')
 
 def create(request):
-    return render(request, 'pages/piece/create.html')
+    formulario = pieza(request.POST or None)
+    return render(request, 'pages/piece/create.html', {'formulario':formulario})
 
 def update(request):
-    return render(request, 'pages/piece/update.html')
+    formulario = pieza(request.POST or None)
+    return render(request, 'pages/piece/update.html', {'formulario' : formulario})
 
 def mycollection(request):
     return render(request, 'pages/mycollection.html')
