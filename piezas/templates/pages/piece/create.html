@@ -1,0 +1,17 @@
+{%  extends 'base.html' %}
+
+{% block title %} Agregar Nueva Pieza {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">
+        Crear una Pieza
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la pieza</h4>
+        {% include 'pages/piece/form.html' %}
+    </div>
+</div>
+
+{% endblock %}
