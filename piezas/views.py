@@ -8,7 +8,7 @@ def login(request):
     return render(request, 'registration/login.html')
 
 def register(request):
-    pass
+    return render(request, 'registration/register.html')
 
 def home(request):
     return render( request, 'pages/home.html')
