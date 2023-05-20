@@ -24,5 +24,5 @@ def update(request):
 def mycollection(request):
     return render(request, 'pages/mycollection.html')
 
-def infopiece(request):
-    return render(request, 'pages/infopiece.html')
+def buy(request):
+    return render(request, 'pages/buy.html')

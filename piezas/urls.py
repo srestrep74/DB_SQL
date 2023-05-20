@@ -8,6 +8,6 @@ urlpatterns = [
     path('mycollection/create' , views.create , name='create'),
     path('mycollection/update' , views.update , name='update'),
     path('mycollection' , views.mycollection , name='mycollection'),
-    path('home/infopiece' , views.infopiece , name='infopiece'),
+    path('home/buy' , views.buy , name='buy'),
 
 ]
