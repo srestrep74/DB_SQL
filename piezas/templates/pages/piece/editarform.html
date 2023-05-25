@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+
+{% block title %} Editar Pieza {% endblock %}
+
+{% block content %} 
+
+
+<form method="post" action='{%url "help_editing" %}'>
+  {% csrf_token %}
+  <label for="id_input">ID del registro a editar:</label>
+  <input type="text" id="id_input" name="id_input">
+  <input type="submit" href="{%url 'editarForm' %}" value="Editar">
+</form>
+
+{% endblock %}

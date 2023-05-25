@@ -1,0 +1,21 @@
+{%  extends 'base.html' %}
+
+{% block title %} Eliminar {% endblock %}
+
+{% block content %} 
+
+
+<div class="card">
+    <div class="card-header">
+        Eliminar pieza
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Id de la pieza a eliminar: </h4>
+        {% include 'pages/piece/formDelete.html' %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+

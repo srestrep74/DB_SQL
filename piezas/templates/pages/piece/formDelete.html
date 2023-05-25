@@ -1,0 +1,6 @@
+<form method="post" action='{%url "eliminar_form" %}'>
+    {% csrf_token %}
+    <label for="id_input">ID del registro a eliminar:</label>
+    <input type="text" id="id_input" name="id_input">
+    <input type="submit" value="Eliminar">
+  </form>

@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for pieza in piezas %}
+    {% for pieza in piezas %}
     <div class="col">
     <div class="card">
     <div class="card-body">
@@ -18,11 +18,15 @@
     <p class="card-text">Diametro: {{ pieza.diametro }}</p>
     <p class="card-text">Año de la pieza: {{ pieza.año }}</p>
     <p class="card-text">Tipo del artículo: {{ pieza.tipo_articulo }}</p>
-    <a name="comprar" id="comprar" class="btn btn-danger" href='{%url "buy"%}' role="button">Comprar</a>
+
              
+    <a name="editar" id="editar" class="btn btn-danger" href="{%url 'editar' %}" role="button">Editar pieza</a>
+    <a name="eliminar" id="eliminar" class="btn btn-danger" href="{%url 'eliminar'%}" role="button">Eliminar pieza</a>
     </div>
     </div>
     </div>
         {% endfor %}
+
+    
     </div>
 {% endblock content %}
