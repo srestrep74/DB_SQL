@@ -42,29 +42,6 @@ def editarForm(request):
         form = editPiece()
     return render(request, 'editar.html', {'form':form})
 
-
-"""
-def editarForm(request):
-    if request.method == "POST": 
-        input_id = request.POST.get('id_input')
-        formulario = piezaForm(request.POST)
-        print("h")
-        if formulario.is_valid():
-            try:
-                update_piece(formulario)
-                print("Formulario valido")
-                redirect('mi_coleccion')  # Guarda los datos en la base de datos
-                    # Redirigir a una página de éxito o realizar otras acciones
-            except Exception as e:
-                    # Manejar el error
-                print(f"Error al guardar los datos: {str(e)}")
-                 
-    else:
-        print("g")
-        formulario = piezaForm()
-    
-    return render(request, 'pages/piece/create.html', {'formulario': formulario})
-"""
 def help_editing(request):
     return render(request, 'pages/piece/editarform.html')
 
@@ -106,20 +83,26 @@ def mi_coleccion(request):
         form = verColeccion()
     return render(request, 'pages/piece/update.html', {'form':form})
 
-def signup(request):
+def mostrar(request):
+    piezas = pieza.objects.all()
+    return render(request, 'mostrar.html', {'piezas': piezas})
+
+
+def register(request):
     if request.method == "POST": 
         formulario = SignupForm(request.POST)
         if formulario.is_valid():
             try:
                 formulario.save()
                 print("Formulario valido")
-                redirect('home')  # Guarda los datos en la base de datos
+                return redirect('mostrar')  # Guarda los datos en la base de datos
                 # Redirigir a una página de éxito o realizar otras acciones
             except Exception as e:
                 # Manejar el error
                 print(f"Error al guardar los datos: {str(e)}")
                  
     else:
+        print("hola")
         formulario = SignupForm()
     
     return render(request, 'register.html', {'formulario': formulario})
@@ -152,41 +135,34 @@ def nueva_pieza(request):
     if request.method == "POST": 
         
         formulario = piezaForm(request.POST)
-        print("h")
         if formulario.is_valid():
             try:
                 formulario.save()
                 print("Formulario valido")
-                redirect('mi_coleccion')  # Guarda los datos en la base de datos
+                return redirect('mostrar')  # Guarda los datos en la base de datos
                 # Redirigir a una página de éxito o realizar otras acciones
             except Exception as e:
                 # Manejar el error
                 print(f"Error al guardar los datos: {str(e)}")
                  
     else:
-        print("g")
         formulario = piezaForm()
     
     return render(request, 'pages/piece/create.html', {'formulario': formulario})
 
-def mostrar(request):
-    piezas = pieza.objects.all()
-    return render(request, 'mostrar.html', {'piezas': piezas})
+
 
 
 def compra(request):
     if request.method == "POST": 
-        
         formulario = buyForm(request.POST)
         id_comprador = request.POST.get('id_coleccionista')
-        print(id_comprador)
         id_pieza = request.POST.get('id_pieza')
-        print(id_pieza)
         if formulario.is_valid():
             try:
                 formulario.save()
                 update_buy(id_comprador, id_pieza)
-                redirect('mostrar')
+                return redirect('mostrar')
                 # Guarda los datos en la base de datos
                 # Redirigir a una página de éxito o realizar otras acciones
             except Exception as e:
@@ -204,9 +180,7 @@ def update_buy(id_comprador, id_pieza):
     instancia.save()
 
 def update_piece(form):
-    print("entro")
     Coleccionista = coleccionista.objects.get(identificacion = form.cleaned_data["coleccionista"])
-    print("hola",Coleccionista)
     instancia = pieza.objects.get(id_pieza = input_id)
     instancia.coleccionista = Coleccionista
     instancia.nombre = form.cleaned_data["nombre"]

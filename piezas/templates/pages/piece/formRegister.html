@@ -1,12 +1,12 @@
-<form enctype="multipart/form-data" method='POST' action="{% url 'editarForm' %}">
+<form enctype="multipart/form-data" method='POST' action="{% url 'register' %}">
     {% csrf_token %}
-    {% for campo in form %}
+    {% for campo in formulario %}
     <div class="mb-3">
         <label for="" class="form-label"> {{ campo.label }} : </label>
         <input type="{{ campo.field.widget.input_type }}"
             class="form-control" name="{{ campo.name }}" id="{{ campo.name }}" aria-describedby="helpId" placeholder="{{ campo.label }}">
     </div>
     {% endfor %}
-    <input name="" id="" class="btn btn-danger" type="submit" value="Agregar">
-    <input name="" id="" class="btn btn-danger" type="submit" value="Cancelar">
+    <input name="" id="" class="btn btn-danger" type="submit" value="Registrarse">
+
   </form>

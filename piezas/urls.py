@@ -1,7 +1,6 @@
 from django.urls import path
 from django.contrib import admin
-from .views import home
-from .views import signup
+from .views import register
 from .views import buy
 from .views import login_view
 from .views import nueva_pieza
@@ -12,8 +11,7 @@ from .views import mostrar, compra, eliminar, eliminar_form, editar, editarForm,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mostrar , name='mostrar'),
-    path('signup/', signup , name='register'),
-    path('home/', home , name='home'),
+    path('signup/', register , name='register'),
     path('buy/', compra, name='buy' ),
     path('login/', login_view, name= 'login_view'),
     path('create/', nueva_pieza, name='nueva_pieza'),

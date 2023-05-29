@@ -6,3 +6,4 @@ admin.site.register(coleccionista)
 
 from .models import compra
 admin.site.register(compra)
+

@@ -7,6 +7,6 @@
             class="form-control" name="{{ campo.name }}" id="{{ campo.name }}" aria-describedby="helpId" placeholder="{{ campo.label }}">
     </div>
     {% endfor %}
-    <input name="" id="" class="btn btn-success" type="submit" href= "{%url 'mi_coleccion' %}" value="Ver Coleccion">
-    <input name="" id="" class="btn btn-danger" type="submit" value="Cancelar">
+    <input name="" id="" class="btn btn-danger" type="submit" href= "{%url 'mi_coleccion' %}" value="Ver Coleccion">
+    <a name="eliminar" id="eliminar" class="btn btn-danger" href="{%url 'mostrar'%}" role="button">Cancelar</a>
   </form>

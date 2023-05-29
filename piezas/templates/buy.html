@@ -1,48 +1,22 @@
-{% extends 'base.html' %}  <!-- Si tienes una plantilla base, extiéndela -->
+{%  extends 'base.html' %}
 
-{% block content %}
-<form method="post" action="{% url 'buy' %}">
-  {% csrf_token %}
-  
-  <label for="fecha_venta">Fecha de la venta: </label>
-  <input
-    id="fecha_venta"
-    type="text"
-    name="fecha_venta"
-    value="" />
-  <br>
-  <label for="valor_compra">Valor de la compra: </label>
-  <input
-    id="valor_compra"
-    type="text"
-    name="valor_compra"
-    value="" />
-  <br>
-  <label for="id_coleccionista">Identificacion del comprador: </label>
-  <input
-    id="id_coleccionista"
-    type="text"
-    name="id_coleccionista"
-    value="" />
-  <br>
-  <label for="id_vendedor">Identificacion del vendedor: </label>
-  <input
-    id="id_vendedor"
-    type="text"
-    name="id_vendedor"
-    value="" />
-  <br>
-  <label for="id_pieza">Identificacion de la pieza: </label>
-  <input
-    id="id_pieza"
-    type="text"
-    name="id_pieza"
-    value="" />
-  <br>
+{% block title %} Comprar {% endblock %}
+
+{% block content %} 
+
+
+<div class="card">
+    <div class="card-header">
+        Comprar
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Comprar</h4><br>
+        {% include 'pages/piece/formBuy.html' %}
+    </div>
+</div>
 
 
 
-
-  <a name="comprar" id="comprar" class="btn btn-danger" href='{%url "mostrar"%}' role="button">Confirmar comprar</a>
+ 
 </form>
 {% endblock %}

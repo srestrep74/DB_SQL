@@ -1,74 +1,18 @@
-{% extends 'base.html' %}  <!-- Si tienes una plantilla base, extiéndela -->
+{%  extends 'base.html' %}
 
-{% block content %}
-<form method="post" action="{% url 'register' %}">
-  {% csrf_token %}
-  <label for="identificacion">Identificacion: </label>
-  <input
-    id="identificacion"
-    type="text"
-    name="identificacion"
-    value="" />
-  <br>
-  <label for="nombres">Nombres del coleccionista: </label>
-  <input
-    id="nombres"
-    type="text"
-    name="nombres"
-    value="" />
-  <br>
-  <label for="apellidos">Apellidos del coleccionista: </label>
-  <input
-    id="apellidos"
-    type="text"
-    name="apellidos"
-    value="" />
-  <br>
-  <label for="direccion">Direccion: </label>
-  <input
-    id="direccion"
-    type="text"
-    name="direccion"
-    value="" />
-  <br>
-  <label for="email">Email: </label>
-  <input
-    id="email"
-    type="text"
-    name="email"
-    value="" />
-  <br>
-  <label for="password">Password: </label>
-  <input
-    id="password"
-    type="text"
-    name="password"
-    value="" />
-  <br>
-  <label for="fecha_registro">Fecha del registro: </label>
-  <input
-    id="fecha_registro"
-    type="text"
-    name="fecha_registro"
-    value="" />
-  <br>
-  <label for="numero_tarjeta_bancaria">Numero de la tarjeta bancaria: </label>
-  <input
-    id="numero_tarjeta_bancaria"
-    type="text"
-    name="numero_tarjeta_bancaria"
-    value="" />
-    <br>
-    <label for="tipo_cuenta">Tipo cuenta: </label>
-  <input
-    id="tipo_cuenta"
-    type="text"
-    name="tipo_cuenta"
-    value="" />
+{% block title %} Agregar coleccionista {% endblock %}
+
+{% block content %} 
 
 
+<div class="card">
+    <div class="card-header">
+        Crear una Pieza
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Registrarse</h4><br>
+        {% include 'pages/piece/formRegister.html' %}
+    </div>
+</div>
 
-
-  <button type="sumbit" >Enviar</button>
-</form>
 {% endblock %}

@@ -10,7 +10,7 @@ from django.contrib.auth.forms import AuthenticationForm
 class SignupForm(forms.ModelForm):
     class Meta:
         model = coleccionista
-        fields = '__all__'
+        fields = ['identificacion', 'nombres', 'apellidos', 'direccion', 'email', 'password', 'numero_tarjeta_bancaria', 'tipo_cuenta']
 
 
 class LoginForm(AuthenticationForm):
@@ -31,7 +31,8 @@ class piezaFormUpdate(forms.ModelForm):
 class buyForm(forms.ModelForm):
     class Meta:
         model = compra
-        fields = '__all__'
+        fields = ['id_compra', 'valor_compra', 'id_coleccionista', 'id_vendedor', 'id_pieza']
+
 
 class verColeccion(forms.Form):
     identificacion = forms.CharField()
